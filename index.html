@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoLearn — Small Actions, Greener Future</title>
+  <meta name="description" content="EcoLearn helps students learn practical ways to reduce waste, recycle, and build sustainable habits.">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- ===== HEADER & NAVIGATION ===== -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#home" aria-label="EcoLearn — go to home">
+        <span class="logo-mark" aria-hidden="true">♻</span>
+        <span class="logo-text">Eco<span>Learn</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul class="nav-list" id="nav-list">
+          <li><a class="nav-link" href="#home">Home</a></li>
+          <li><a class="nav-link" href="#learn">Learn</a></li>
+          <li><a class="nav-link" href="#waste-guide">Waste Guide</a></li>
+          <li><a class="nav-link" href="#eco-calendar">Eco Calendar</a></li>
+          <li><a class="nav-link" href="#quiz">Quiz</a></li>
+          <li><a class="nav-link" href="#my-progress">My Progress</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button id="theme-toggle" class="icon-btn" type="button" aria-pressed="false" aria-label="Switch to dark mode">
+          <span id="theme-icon" aria-hidden="true">☾</span>
+        </button>
+        <button id="menu-toggle" class="icon-btn menu-btn" type="button" aria-expanded="false" aria-controls="nav-list" aria-label="Open menu">
+          <span aria-hidden="true">☰</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== ECO DAY NOTIFICATION BANNER ===== -->
+  <div id="eco-banner" class="eco-banner" role="status" aria-live="polite" hidden>
+    <div class="container eco-banner-inner">
+      <span class="banner-icon" aria-hidden="true">🔔</span>
+      <p id="eco-banner-text"></p>
+      <button id="eco-banner-close" class="banner-close" type="button" aria-label="Dismiss notification">✕</button>
+    </div>
+  </div>
+
+  <main id="main">
+    <!-- ===== HERO ===== -->
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">🌱 Small Actions, Greener Future</p>
+          <h1>Small Actions. Big Environmental Impact.</h1>
+          <p class="lead">EcoLearn helps students learn practical ways to reduce waste, protect the environment, and develop sustainable habits — through short lessons, a sorting game, a points-based quiz, and an eco calendar.</p>
+          <div class="hero-buttons">
+            <a class="btn btn-primary" href="#learn">Start Learning</a>
+            <a class="btn btn-secondary" href="#quiz">Take the Quiz</a>
+          </div>
+          <ul class="stats" aria-label="What is on this website">
+            <li><strong id="stat-tips">0</strong><span>Waste management tips</span></li>
+            <li><strong id="stat-events">0</strong><span>Environmental awareness days</span></li>
+            <li><strong id="stat-questions">0</strong><span>Quiz questions</span></li>
+          </ul>
+        </div>
+        <div class="hero-visual">
+          <img id="hero-image"
+               src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1000&q=80"
+               alt="Sunlight shining through tall green trees in a healthy forest"
+               data-fallback="🌳" width="1000" height="700">
+          <div class="floating-chip chip-one" aria-hidden="true">♻ Recycle</div>
+          <div class="floating-chip chip-two" aria-hidden="true">🌱 Grow</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TODAY'S ECO TIP ===== -->
+    <section id="daily-tip" class="section tip-section" aria-labelledby="daily-tip-title">
+      <div class="container">
+        <div class="daily-tip-card">
+          <div class="daily-tip-icon" aria-hidden="true">💡</div>
+          <div class="daily-tip-body">
+            <p class="eyebrow" id="daily-tip-date"></p>
+            <h2 id="daily-tip-title">Today's Eco Tip</h2>
+            <p id="daily-tip-text" class="daily-tip-text"></p>
+          </div>
+          <button id="daily-tip-btn" class="btn btn-primary" type="button" aria-pressed="false">Mark as done</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LEARN ===== -->
+    <section id="learn" class="section">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Learn</p>
+          <h2>The 5 Rs of Waste Management</h2>
+          <p class="section-intro">Five simple ideas, in a sensible order: avoid waste first, and recycle what is left.</p>
+        </header>
+        <div id="rs-grid" class="card-grid grid-5"></div>
+
+        <div class="why-block">
+          <div class="why-image">
+            <img id="why-image"
+                 src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=900&q=80"
+                 alt="A young green seedling growing from soil"
+                 data-fallback="🌍" width="900" height="600" loading="lazy">
+          </div>
+          <div>
+            <header class="section-head left">
+              <p class="eyebrow">Why it matters</p>
+              <h2>Why Waste Management Matters</h2>
+            </header>
+            <div id="benefits-grid" class="benefit-list"></div>
+          </div>
+        </div>
+
+        <header class="section-head tips-head">
+          <p class="eyebrow">Take action</p>
+          <h2>Practical Tips for Students</h2>
+          <p class="section-intro">Use these at school, university or home. Mark a tip as done when you have tried it.</p>
+          <p id="tips-summary" class="tips-summary" role="status"></p>
+        </header>
+        <div id="tips-grid" class="card-grid grid-tips"></div>
+      </div>
+    </section>
+
+    <!-- ===== WASTE GUIDE + GAME ===== -->
+    <section id="waste-guide" class="section section-alt">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Waste Guide</p>
+          <h2>Types of Waste</h2>
+          <p class="section-intro">Select a waste type to see examples and how it is generally handled.</p>
+        </header>
+        <p class="notice">ℹ Recycling rules differ by location. Always follow your school's or local waste collection provider's guidelines.</p>
+        <div id="waste-types-list" class="accordion"></div>
+
+        <!-- Game -->
+        <div class="game-card" id="waste-game">
+          <div class="game-head">
+            <div>
+              <p class="eyebrow">Interactive game</p>
+              <h3>Where Does It Go?</h3>
+            </div>
+            <div class="game-scores" aria-live="polite">
+              <span class="pill">Score: <strong id="game-score">0</strong></span>
+              <span class="pill pill-soft">Best: <strong id="game-best">0</strong></span>
+              <button id="game-restart" class="btn btn-small btn-outline" type="button">Restart game</button>
+            </div>
+          </div>
+
+          <div id="game-play">
+            <p id="game-progress" class="muted"></p>
+            <div class="game-item">
+              <span id="game-emoji" class="game-emoji" aria-hidden="true"></span>
+              <p id="game-name" class="game-name"></p>
+            </div>
+            <p class="muted center">Which category does this item belong to?</p>
+            <div id="game-options" class="option-grid" role="group" aria-label="Waste category choices"></div>
+            <div id="game-feedback" class="feedback" role="status" aria-live="polite" hidden></div>
+            <div class="center"><button id="game-next" class="btn btn-primary" type="button" hidden>Next item</button></div>
+          </div>
+
+          <div id="game-result" class="result-panel" hidden>
+            <h4>Game complete! 🎉</h4>
+            <p id="game-result-text"></p>
+            <p class="muted">Press “Restart game” to play again with a new order.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ECO CALENDAR ===== -->
+    <section id="eco-calendar" class="section">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Eco Calendar</p>
+          <h2>Environmental Awareness Days</h2>
+          <p class="section-intro">Countdowns use your device's local date. Save the events you want to take part in.</p>
+        </header>
+        <div id="eco-events-grid" class="card-grid grid-events"></div>
+
+        <div class="my-events">
+          <h3>My Eco Events</h3>
+          <p id="my-events-empty" class="empty-state">You have not saved any events yet. Choose “Save event” on a card above to build your list.</p>
+          <ul id="my-events-list" class="saved-list"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== QUIZ ===== -->
+    <section id="quiz" class="section section-alt">
+      <div class="container narrow">
+        <header class="section-head">
+          <p class="eyebrow">Quiz</p>
+          <h2>Eco Champion Challenge</h2>
+        </header>
+
+        <div class="quiz-card">
+          <!-- Intro -->
+          <div id="quiz-intro" class="quiz-intro">
+            <div class="big-icon" aria-hidden="true">🏆</div>
+            <p id="quiz-intro-info" class="lead center"></p>
+            <p class="muted center">Each correct answer earns 10 points. Wrong answers earn 0. Points are added to your lifetime total only when you finish a quiz.</p>
+            <div class="center"><button id="quiz-start" class="btn btn-primary" type="button">Start Quiz</button></div>
+          </div>
+
+          <!-- Question -->
+          <div id="quiz-play" hidden>
+            <div class="quiz-top">
+              <span id="quiz-progress-text" class="pill pill-soft"></span>
+              <span class="pill">This attempt: <strong id="quiz-score">0</strong> pts</span>
+            </div>
+            <div id="quiz-progress-track" class="progress-track" role="progressbar" aria-label="Quiz progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+              <div id="quiz-progress-bar" class="progress-bar"></div>
+            </div>
+            <h3 id="quiz-question" class="quiz-question" tabindex="-1"></h3>
+            <div id="quiz-options" class="quiz-options" role="group" aria-labelledby="quiz-question"></div>
+            <div id="quiz-feedback" class="feedback" role="status" aria-live="polite" hidden></div>
+            <div class="quiz-actions">
+              <button id="quiz-quit" class="btn btn-small btn-outline" type="button">Quit &amp; restart</button>
+              <button id="quiz-next" class="btn btn-primary" type="button" hidden>Next Question</button>
+            </div>
+          </div>
+
+          <!-- Results -->
+          <div id="quiz-results" class="result-panel" hidden>
+            <div class="big-icon" aria-hidden="true">🌟</div>
+            <h3>Quiz complete!</h3>
+            <p class="result-level">Level: <strong id="result-level"></strong></p>
+            <p id="result-message"></p>
+            <ul class="result-stats">
+              <li><strong id="result-score">0</strong><span>Points this attempt</span></li>
+              <li><strong id="result-correct">0</strong><span>Correct answers</span></li>
+              <li><strong id="result-total">0</strong><span>Lifetime points</span></li>
+            </ul>
+            <button id="quiz-restart" class="btn btn-primary" type="button">Play Again</button>
+          </div>
+        </div>
+        <p class="muted center small-note">Scores are stored in this browser only. They are not linked to a verified student account or a shared leaderboard.</p>
+      </div>
+    </section>
+
+    <!-- ===== MY PROGRESS ===== -->
+    <section id="my-progress" class="section">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">My Progress</p>
+          <h2>Your Eco Dashboard</h2>
+        </header>
+
+        <p id="storage-warning" class="notice warn" hidden>Your browser is blocking local storage, so progress will be lost when you close or refresh this page.</p>
+
+        <div class="dash-grid">
+          <div class="dash-card"><span class="dash-icon" aria-hidden="true">⭐</span><strong id="prog-points">0</strong><span>Total points earned</span></div>
+          <div class="dash-card"><span class="dash-icon" aria-hidden="true">🎯</span><strong id="prog-best">0</strong><span>Best quiz score</span></div>
+          <div class="dash-card"><span class="dash-icon" aria-hidden="true">✅</span><strong id="prog-completed">0</strong><span>Quizzes completed</span></div>
+          <div class="dash-card"><span class="dash-icon" aria-hidden="true">🏅</span><strong id="prog-level">None yet</strong><span>Achievement level</span></div>
+          <div class="dash-card"><span class="dash-icon" aria-hidden="true">📅</span><strong id="prog-events">0</strong><span>Saved eco events</span></div>
+          <div class="dash-card"><span class="dash-icon" aria-hidden="true">💚</span><strong id="prog-tips">0</strong><span>Tips completed</span></div>
+        </div>
+
+        <div class="panel">
+          <h3>Progress to your next level</h3>
+          <div id="level-progress-track" class="progress-track" role="progressbar" aria-label="Progress to next achievement level" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div id="level-bar" class="progress-bar"></div>
+          </div>
+          <p id="level-bar-label" class="muted"></p>
+        </div>
+
+        <div class="panel">
+          <h3>My Eco Action Checklist</h3>
+          <p class="muted">This checklist is for self-tracking only. It does not verify that an action was actually completed.</p>
+          <div id="checklist" class="checklist"></div>
+        </div>
+
+        <div class="panel reset-panel">
+          <h3>Reset progress</h3>
+          <p class="muted">This clears your points, quiz history, saved events, completed tips and checklist from this browser.</p>
+          <button id="reset-btn" class="btn btn-danger" type="button">Reset my progress</button>
+          <div id="reset-confirm" class="reset-confirm" role="alert" hidden>
+            <p><strong>Are you sure?</strong> This cannot be undone.</p>
+            <button id="reset-yes" class="btn btn-danger" type="button">Yes, delete my progress</button>
+            <button id="reset-no" class="btn btn-outline" type="button">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="logo logo-footer" href="#home" aria-label="EcoLearn — go to home">
+          <span class="logo-mark" aria-hidden="true">♻</span>
+          <span class="logo-text">Eco<span>Learn</span></span>
+        </a>
+        <p class="footer-message">Every bottle refilled, every page reused and every item sorted correctly makes a difference. Small actions, greener future.</p>
+      </div>
+      <nav aria-label="Footer navigation">
+        <h4>Quick links</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#learn">Learn</a></li>
+          <li><a href="#waste-guide">Waste Guide</a></li>
+          <li><a href="#eco-calendar">Eco Calendar</a></li>
+          <li><a href="#quiz">Quiz</a></li>
+          <li><a href="#my-progress">My Progress</a></li>
+          <li><a href="#daily-tip">Today's Eco Tip</a></li>
+        </ul>
+      </nav>
+      <div class="footer-top">
+        <button id="back-to-top" class="btn btn-outline-light" type="button">↑ Back to top</button>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="footer-year"></span> EcoLearn. Progress is saved in your browser only.</p>
+    </div>
+  </footer>
+</body>
+</html>
